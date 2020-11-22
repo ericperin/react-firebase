@@ -1,33 +1,12 @@
 import React, { ChangeEvent, useState } from "react";
-import { connect, ConnectedProps, useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 
 import { loginAction } from "../redux/actions";
 import Reducers from "../redux/reducers";
 import { AuthState } from "../redux/reducers/auth";
 
-interface RootState {
-  isOn: boolean
-  authState: {
-    loggedIn: boolean
-  }
-}
-const mapStateToProps = (state: RootState) => ({
-  ...state
-});
-
-const mapDispatchToProps = (dispatch: any) => ({
-  // loginAction: (email, password)(dispatch(loginAction(email, password)))
-});
-
-const connector = connect(mapStateToProps, mapDispatchToProps)
-type PropsFromRedux = ConnectedProps<typeof connector>
-
-type Props = PropsFromRedux & {
-
-}
-
-const LoginPage = (props: Props) => {
+const LoginPage = () => {
   const auth = useSelector<ReturnType<typeof Reducers>, AuthState>((state) => state.authState);
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
@@ -50,7 +29,4 @@ const LoginPage = (props: Props) => {
   );
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(LoginPage);
+export default LoginPage;

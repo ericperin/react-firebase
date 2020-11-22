@@ -26,7 +26,8 @@ import { AuthState } from './redux/reducers/auth';
 // type Props = PropsFromRedux & {
 
 // }
-function App() {
+type AppProps = { message: string };
+const App = ({ message }: AppProps) => {
   const auth = useSelector<ReturnType<typeof Reducers>, AuthState>((state) => state.authState);
 
   return (
@@ -40,7 +41,7 @@ function App() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Learn React
+            {message}
       </a>
         </header>
       </div>

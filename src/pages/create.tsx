@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import { registerAction } from '../redux/actions';
 
-const CreateAccountPage: React.FC = () => {
+const CreateAccountPage = () => {
   const dispatch = useDispatch();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");

@@ -34,7 +34,7 @@ const router = () => {
             <LoginPage />
           </Route>
           <Route path="/">
-            <RootPage />
+            <RootPage message={"Welcome!!!"} />
           </Route>
         </Switch>
       </div>
