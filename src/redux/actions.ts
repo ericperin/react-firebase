@@ -1,4 +1,4 @@
-import firebase, { userDetailsRef, cardsRef } from './firebaseConfig';
+import firebase, { userDetailsRef, cardsRef } from '../firebaseConfig';
 
 export const registerAction = (name: string, email: string, password: string) => async (dispatch: any) => {
   firebase.auth().createUserWithEmailAndPassword(email, password).then((response) => {
