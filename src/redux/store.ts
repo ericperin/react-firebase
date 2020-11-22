@@ -5,9 +5,7 @@ import rootReducer from './reducers';
 
 function configureStore(
   state = {
-    authState: {
-      loggedIn: false
-    }
+
   }
 ) {
   return createStore(rootReducer, state, applyMiddleware(reduxThunk))

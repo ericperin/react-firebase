@@ -1,4 +1,5 @@
 import firebase, { userDetailsRef, cardsRef } from '../firebaseConfig';
+import { ActionTypes } from './actionTypes';
 
 export const registerAction = (name: string, email: string, password: string) => async (dispatch: any) => {
   firebase.auth().createUserWithEmailAndPassword(email, password).then((response) => {
@@ -8,7 +9,7 @@ export const registerAction = (name: string, email: string, password: string) =>
     });
 
     dispatch({
-      type: 'register',
+      type: ActionTypes.REGISTER_USER,
       payload: true
     })
   }).catch((e) => {
@@ -19,9 +20,9 @@ export const registerAction = (name: string, email: string, password: string) =>
 export const loginAction = (email: string, password: string) => async (dispatch: any) => {
   firebase.auth().signInWithEmailAndPassword(email, password).then((_) => {
     dispatch({
-      type: 'login',
+      type: ActionTypes.LOGIN_USER,
       payload: true
-    })
+    });
   }).catch((e) => {
     console.log(e);
   });
