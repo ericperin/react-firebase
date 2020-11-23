@@ -12,6 +12,6 @@ const App: React.FC = ({ children }) => (
     {/* <Footer />
     <Messages /> */}
   </div>
-)
+);
 
 export default App;

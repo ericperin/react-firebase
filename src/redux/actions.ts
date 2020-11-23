@@ -11,10 +11,10 @@ export const registerAction = (name: string, email: string, password: string) =>
     dispatch({
       type: ActionTypes.REGISTER_USER,
       payload: true
-    })
+    });
   }).catch((e) => {
     console.log(e);
-  })
+  });
 };
 
 export const loginAction = (email: string, password: string) => async (dispatch: any) => {
@@ -29,7 +29,7 @@ export const loginAction = (email: string, password: string) => async (dispatch:
 };
 
 export const signOut = () => async (dispatch: any) => {
-  firebase.auth().signOut().then((_) => {
+  firebase.auth().signOut().then(() => {
     dispatch({
       type: ActionTypes.VALID_TOKEN,
       payload: false
@@ -51,7 +51,7 @@ export const isValidToken = () => async (dispatch: any) => {
 };
 
 export const getAllCards = () => async (dispatch: any) => {
-  cardsRef.on('value', snapshot => {
+  cardsRef.on('value', (snapshot) => {
     dispatch({
       type: 'getAllCards',
       payload: snapshot.val() || {}
@@ -64,7 +64,7 @@ export const addCard = (text: string) => async (dispatch: any) => {
     value: text
   }).then(() => {
     dispatch({
-      type: "addCard"
+      type: 'addCard'
     });
   });
 };
