@@ -19,7 +19,7 @@ const LoginPage = () => {
     dispatch(loginAction(email, password));
   }
 
-  return (!auth.loggedIn ?
+  return (!auth.validToken ?
     <>
       <input type="text" placeholder="Email" onChange={udpateEmail} />
       <input type="text" placeholder="Password" onChange={udpatePassword} />

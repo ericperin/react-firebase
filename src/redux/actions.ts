@@ -18,10 +18,32 @@ export const registerAction = (name: string, email: string, password: string) =>
 };
 
 export const loginAction = (email: string, password: string) => async (dispatch: any) => {
-  firebase.auth().signInWithEmailAndPassword(email, password).then((_) => {
+  firebase.auth().signInWithEmailAndPassword(email, password).then((response) => {
     dispatch({
       type: ActionTypes.LOGIN_USER,
-      payload: true
+      payload: { id: response.user!.uid, email: response.user!.email }
+    });
+  }).catch((e) => {
+    console.log(e);
+  });
+};
+
+export const signOut = () => async (dispatch: any) => {
+  firebase.auth().signOut().then((_) => {
+    dispatch({
+      type: ActionTypes.VALID_TOKEN,
+      payload: false
+    });
+  }).catch((e) => {
+    console.log(e);
+  });
+};
+
+export const isValidToken = () => async (dispatch: any) => {
+  firebase.auth().currentUser?.getIdTokenResult().then((response) => {
+    dispatch({
+      type: ActionTypes.VALID_TOKEN,
+      payload: new Date(response.expirationTime) > new Date()
     });
   }).catch((e) => {
     console.log(e);

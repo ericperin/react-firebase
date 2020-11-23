@@ -6,8 +6,9 @@ import {
   Link
 } from "react-router-dom";
 import CreateAccountPage from "./pages/create";
+import Dashboard from "./pages/dashboard";
 import LoginPage from "./pages/login";
-import RootPage from "./App";
+import RootPage from "./routes/authProvider";
 
 const router = () => {
   return (
@@ -33,8 +34,11 @@ const router = () => {
           <Route path="/login">
             <LoginPage />
           </Route>
+          <Route path="/dashboard">
+            <Dashboard message="Oi" />
+          </Route>
           <Route path="/">
-            <RootPage message={"Welcome!!!"} />
+            <RootPage />
           </Route>
         </Switch>
       </div>
