@@ -1,6 +1,6 @@
-import { ActionTypes } from "../actionTypes";
+import { ActionTypes } from '../actionTypes';
 
-const USER_KEY = "react_user";
+const USER_KEY = 'react_user';
 
 export interface AuthState {
   user: object,
@@ -30,13 +30,12 @@ const AuthReducer = (state: AuthState = initialState, action: Action) => {
       return { ...state, validToken: action.payload };
     }
     case ActionTypes.LOGIN_USER: {
-      debugger;
       localStorage.setItem(USER_KEY, JSON.stringify(action.payload));
       return { ...state, validToken: true, user: action.payload };
     }
     default:
       return state;
   }
-}
+};
 
 export default AuthReducer;

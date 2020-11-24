@@ -3,9 +3,8 @@ import React from 'react';
 import logo from '../logo.svg';
 
 type AppProps = { message: string };
-const Dashboard = ({ message }: AppProps) => {
-
-  return (<div className="App">
+const Dashboard = ({ message }: AppProps) => (
+  <div className="App">
     <header className="App-header">
       <img src={logo} className="App-logo" alt="logo" />
       <a
@@ -17,7 +16,7 @@ const Dashboard = ({ message }: AppProps) => {
         {message}
       </a>
     </header>
-  </div>)
-}
+  </div>
+);
 
 export default Dashboard;

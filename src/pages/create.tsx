@@ -5,13 +5,13 @@ import { registerAction } from '../redux/actions';
 
 const CreateAccountPage = () => {
   const dispatch = useDispatch();
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const udpateName = (event:ChangeEvent<HTMLInputElement>) => setName(event.target.value);
-  const udpateEmail = (event:ChangeEvent<HTMLInputElement>) => setEmail(event.target.value);
-  const udpatePassword = (event:ChangeEvent<HTMLInputElement>) => setPassword(event.target.value);
+  const udpateName = (event: ChangeEvent<HTMLInputElement>) => setName(event.target.value);
+  const udpateEmail = (event: ChangeEvent<HTMLInputElement>) => setEmail(event.target.value);
+  const udpatePassword = (event: ChangeEvent<HTMLInputElement>) => setPassword(event.target.value);
 
   function handleSubmit() {
     dispatch(registerAction(name, email, password));
@@ -24,7 +24,7 @@ const CreateAccountPage = () => {
       <input type="text" placeholder="Password" onChange={udpatePassword} />
       <button type="submit" onClick={handleSubmit}>Criar conta</button>
     </>
-  )
-}
+  );
+};
 
 export default CreateAccountPage;

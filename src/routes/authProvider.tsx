@@ -7,6 +7,7 @@ import LoginPage from '../pages/login';
 import App from '../App';
 import { isValidToken } from '../redux/actions';
 
+// eslint-disable-next-line react/prop-types
 const AuthProvider: React.FC = ({ children }) => {
   const auth = useSelector<ReturnType<typeof Reducers>, AuthState>((state) => state.authState);
   console.log(auth);
@@ -16,11 +17,10 @@ const AuthProvider: React.FC = ({ children }) => {
 
   if (auth.user && auth.validToken) {
     // axios.defaults.headres.commom['authorization'] = user.token;
-    return (<App>{children}</App>)
+    return (<App>{children}</App>);
   }
-  else {
-    return (<LoginPage />)
-  }
-}
+
+  return (<LoginPage />);
+};
 
 export default AuthProvider;

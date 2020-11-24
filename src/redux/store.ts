@@ -8,7 +8,7 @@ function configureStore(
 
   }
 ) {
-  return createStore(rootReducer, state, applyMiddleware(reduxThunk))
+  return createStore(rootReducer, state, applyMiddleware(reduxThunk));
 }
 
 export default configureStore;
