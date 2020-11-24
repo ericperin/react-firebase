@@ -12,8 +12,8 @@ export const registerAction = (name: string, email: string, password: string) =>
       type: ActionTypes.REGISTER_USER,
       payload: true
     });
-  }).catch((e) => {
-    console.log(e);
+  }).catch(() => {
+    // console.log(e);
   });
 };
 
@@ -23,8 +23,8 @@ export const loginAction = (email: string, password: string) => async (dispatch:
       type: ActionTypes.LOGIN_USER,
       payload: { id: response.user!.uid, email: response.user!.email }
     });
-  }).catch((e) => {
-    console.log(e);
+  }).catch(() => {
+    // console.log(e);
   });
 };
 
@@ -34,8 +34,8 @@ export const signOut = () => async (dispatch: any) => {
       type: ActionTypes.VALID_TOKEN,
       payload: false
     });
-  }).catch((e) => {
-    console.log(e);
+  }).catch(() => {
+    // console.log(e);
   });
 };
 
@@ -45,8 +45,8 @@ export const isValidToken = () => async (dispatch: any) => {
       type: ActionTypes.VALID_TOKEN,
       payload: new Date(response.expirationTime) > new Date()
     });
-  }).catch((e) => {
-    console.log(e);
+  }).catch(() => {
+    // console.log(e);
   });
 };
 

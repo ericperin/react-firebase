@@ -10,7 +10,6 @@ import { isValidToken } from '../redux/actions';
 // eslint-disable-next-line react/prop-types
 const AuthProvider: React.FC = ({ children }) => {
   const auth = useSelector<ReturnType<typeof Reducers>, AuthState>((state) => state.authState);
-  console.log(auth);
   useEffect(() => {
     isValidToken();
   }, []);
