@@ -37,7 +37,7 @@ const router = () => (
           <Dashboard message="Oi" />
         </Route>
         <Route path="/">
-          <RootPage />
+          <LoginPage />
         </Route>
       </Switch>
     </div>
