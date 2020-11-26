@@ -8,7 +8,6 @@ import {
 import CreateAccountPage from './pages/create';
 import Dashboard from './pages/dashboard';
 import LoginPage from './pages/login';
-import RootPage from './routes/authProvider';
 
 const router = () => (
   <Router>
